@@ -45,9 +45,12 @@ print(master.columns.tolist())
 print(master.head(5))
 print(f"\nMissing values:\n{master.isna().sum()}")
 
+master.columns.tolist()
 # clean column names
-
-master.columns = ['fips', 'county', 'si_crude_rate', 'sii_crude_rate', 'mh_provider_rate', 'mh_provider_ratio_str', 'pct_uninsured', 'pct_unemployed', 'pct_children_poverty', 'avg_mentally_unhealthy_days']
+master.columns
+print("COLUMNS BEFORE RENAME:", master.columns.tolist())
+print("COUNT:", len(master.columns))
+master.columns = ['fips', 'county', 'si_crude_rate', 'sii_crude_rate', 'mh_provider_rate', 'mh_provider_ratio_str', 'pct_uninsured', 'pct_unemployed', 'pct_children_poverty', 'avg_mentally_unhealthy_days', 'population', 'pct_rural', 'log_population']
 
 # parse provider ratio string to float
 master['mh_provider_ratio'] = (
@@ -81,3 +84,5 @@ print(master[['county', 'burden_score', 'capacity_score', 'gap_index']].sort_val
 
 master.to_csv('data/master.csv', index=False)
 print("\nSaved master.csv to data folder.")
+
+print(master[['pct_rural', 'population', 'log_population']].head(5))

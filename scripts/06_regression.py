@@ -27,4 +27,13 @@ results_rev = ols.fit(cov_type = 'HC3')
 print(results_rev.summary())
 # Found that this improves the model (lower AIC and condition no.)
 
-# 
+# Want to update with a new variable; went back to 02 and updated chr --> master
+# Including rurality in OLS
+ols = smf.ols(formula='gap_index ~ mh_provider_rate + pct_children_poverty + avg_mentally_unhealthy_days + pct_rural', data=master)
+results_rur = ols.fit(cov_type = 'HC3')
+print(results_rur.summary())
+
+# Including log_population as control var in OLS
+ols = smf.ols(formula='gap_index ~ mh_provider_rate + pct_children_poverty + avg_mentally_unhealthy_days + pct_rural + log_population', data=master)
+results_pop = ols.fit(cov_type = 'HC3')
+print(results_pop.summary())
