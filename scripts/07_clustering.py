@@ -35,10 +35,14 @@ print(master.groupby('cluster_labels')[['burden_score', 'capacity_score', 'pct_c
 # Confirm why (?) cluster 1 has that pattern
 
 cluster_names = {0: 'High Need, Under-Resourced',
-    1: 'Rural Under-Resourced, Moderate Need',
+    1: 'Under-Resourced, Moderate Need',
     2: 'Well-Resourced'}
 master['cluster_name'] = master['cluster_labels'].map(cluster_names)
 
 print(master['cluster_name'].value_counts())
 
 print(master[master['cluster_name'] == 'High Need, Under-Resourced'][['county', 'burden_score', 'capacity_score', 'gap_index']].sort_values('gap_index', ascending=False))
+
+master.to_csv('data/master.csv', index=False)
+print("Saved master.csv with cluster labels")
+print(master[['county', 'cluster_labels', 'cluster_name']].head())
