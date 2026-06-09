@@ -37,3 +37,9 @@ print(results_rur.summary())
 ols = smf.ols(formula='gap_index ~ mh_provider_rate + pct_children_poverty + avg_mentally_unhealthy_days + pct_rural + log_population', data=master)
 results_pop = ols.fit(cov_type = 'HC3')
 print(results_pop.summary())
+
+# FINAL MODEL -- best AIC, cleanest interpretation
+ols_final = smf.ols(formula='gap_index ~ mh_provider_rate + pct_children_poverty + avg_mentally_unhealthy_days', data=master)
+results_final = ols_final.fit(cov_type='HC3')
+print("FINAL MODEL")
+print(results_final.summary())

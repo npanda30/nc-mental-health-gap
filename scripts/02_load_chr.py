@@ -39,3 +39,4 @@ print(f"\nMissing values:\n{chr_df.isna().sum()}")
 
 chr_df.to_csv('data/chr_2025.csv', index=False)
 print("\nSaved chr_2025.csv to data folder.")
+
