@@ -5,3 +5,6 @@ Evaluating the crisis burden vs. response capacity for mental health resources i
 
 ## Findings
 Visualizations have thus yielded the top 15 counties by computed gap index, with Anson (3.44) and Edgecombe (3.16) as clear outliers. Additionally, the top 6 counties with highest gap index have also been shown to be rapidly increasing in suicidal ideation ED visit rates since 2020, outpacing both the state average and their own ability to support their residents.
+
+## Interactive Dashboard
+[View the Tableau Public Dashboard](https://public.tableau.com/app/profile/neha.panda/viz/CX100_PandaN/ChloroplethMaps)
